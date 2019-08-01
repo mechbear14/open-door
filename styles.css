@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  font-family: "Arial", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0080ff, #ffffff);
+}
+
+#world {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+
+.door {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: calc(100% / 6);
+  height: 100vh;
+  background-color: #f0f0f0;
+  transform-origin: center left;
+  backface-visibility: visible;
+  transition: transform 0.5s ease-in;
+  font-size: 7rem;
+  color: #15151a;
+  /* transform: translateY(20px) rotateX(60deg); */
+}
+
+.balloon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 2rem);
+  height: calc(50vh - 2rem);
+  border-radius: 1rem;
+  border: 2px black solid;
+  display: none;
+  z-index: 602;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.balloon > p {
+  overflow-y: auto;
+}
+
+.front {
+  cursor: pointer;
+  transform: translateZ(0px);
+}
+
+.front:hover {
+  background-color: #e0e0e0;
+}
+
+.front:hover + .balloon,
+.balloon:hover {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.back {
+  transform: translateZ(-3000px);
+}
+
+.fall {
+  transform: rotateY(90deg);
+}
+
+.out {
+  transform: translateZ(100px);
+}
