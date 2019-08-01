@@ -25,10 +25,9 @@ body {
 #world {
   transform-style: preserve-3d;
   perspective: 1000px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
   position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .door {
@@ -40,9 +39,9 @@ body {
   background-color: #f0f0f0;
   transform-origin: center left;
   backface-visibility: visible;
-  transition: transform 0.5s ease-in;
   font-size: 7rem;
   color: #15151a;
+  transition: transform 0.5s ease-in;
   /* transform: translateY(20px) rotateX(60deg); */
 }
 
@@ -66,15 +65,18 @@ body {
 }
 
 .front {
-  cursor: pointer;
   transform: translateZ(0px);
 }
 
-.front:hover {
+.front .door {
+  cursor: pointer;
+}
+
+.front .door:hover {
   background-color: #e0e0e0;
 }
 
-.front:hover + .balloon,
+.front .door:hover + .balloon,
 .balloon:hover {
   display: flex;
   flex-direction: column;
@@ -85,10 +87,22 @@ body {
   transform: translateZ(-3000px);
 }
 
-.fall {
+.face {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 1.5s ease-in;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+}
+
+.door.fall {
   transform: rotateY(90deg);
 }
 
 .out {
-  transform: translateZ(100px);
+  transform: translateZ(3000px);
 }
