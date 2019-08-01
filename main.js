@@ -122,7 +122,6 @@ function openDoor(event) {
     door.removeEventListener("click", openDoor);
   });
   let balloons = Array.from(document.getElementsByClassName("balloon"));
-  console.log(balloons);
   balloons.forEach(balloon => {
     balloon.style.display = "none";
   });
